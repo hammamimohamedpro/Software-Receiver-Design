@@ -1,4 +1,4 @@
-% demod2step.m two-step demodulation of suppressed carrier AM
+% AMIntermediateDemod.m two-step demodulation of suppressed carrier AM
 time=0.3; Ts=1/10000;                    % sampling interval & time
 t=Ts:Ts:time; lent=length(t);           % define a time vector
 fm=20; fc=2000;                          % message and carrier freq
