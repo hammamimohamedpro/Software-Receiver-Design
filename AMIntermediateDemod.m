@@ -1,9 +1,10 @@
-% AMIntermediateDemod.m two-step demodulation of suppressed carrier AM
-time=0.3; Ts=1/10000;                    % sampling interval & time
+% demod2step.m two-step demodulation of suppressed carrier AM
+time=0.4 ; Ts=1/10000;                    % sampling interval & time
 t=Ts:Ts:time; lent=length(t);           % define a time vector
 fm=20; fc=2000;                          % message and carrier freq
-w=5/lent*(1:lent)+cos(2*pi*fm*t);       % create "message"
-v=w.*cos(2*pi*fc*t);                    % modulate with carrier
+w=5/lent*(1:lent)+cos(2*pi*fm*t);        % create "message"
+n=randn(1,time/Ts);                      % add "noise"
+v=w.*cos(2*pi*fc*t) + n  ;                % modulate with carrier
 
 c1=cos(2*pi*(3*fc/4)*t);               % first demod carrier 3fc/4
 x1=v.*c1;                               % mix with modulated signal
